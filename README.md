@@ -1,66 +1,45 @@
-## Foundry
+# Smart Contract Lottery (Solidity + Foundry)
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A Chainlink VRF-powered lottery / raffle smart contract built with Foundry.  
+Includes configurable parameters, deploy scripts, and tests.
 
-Foundry consists of:
+> **Tech stack:** Solidity, Foundry, Chainlink VRF, (add Automation if you use it)
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+---
 
-## Documentation
+## ✨ Features
 
-https://book.getfoundry.sh/
+- **Configurable Lottery**
+  - Ticket price, interval, player limit (customize based on your implementation)
+- **Secure Randomness (VRF)**
+  - Uses Chainlink VRF for unbiased winner selection
+- **Automation-Friendly**
+  - (If applicable) Designed to work with Chainlink Automation / keepers
+- **Deploy & Interaction Scripts**
+  - `DeployRaffle.s.sol` – deploys the contract by network
+  - `HelperConfig.s.sol` – network-specific config (VRF, subscription, gas lanes)
+  - `Interactions.s.sol` – helper functions to enter, draw, etc.
 
-## Usage
+---
 
-### Build
+## Project Structure
 
-```shell
-$ forge build
-```
+```text
+src/
+  Raffle.sol          # Core lottery contract
 
-### Test
+test/
+  Raffle.t.sol        # Unit tests
+  RaffleIntegration.t.sol  # Integration / fork tests (if applicable)
 
-```shell
-$ forge test
-```
+script/
+  DeployRaffle.s.sol  # Deployment
+  HelperConfig.s.sol  # Config per chain
+  Interactions.s.sol  # Interaction helpers
 
-### Format
+lib/
+  ...                 # Dependencies (e.g. OpenZeppelin, Chainlink)
 
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+foundry.toml          # Foundry config
+.gitignore            # Pro ignores for artifacts, OS junk, env, etc.
 ```
