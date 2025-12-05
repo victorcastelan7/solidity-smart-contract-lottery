@@ -1,14 +1,52 @@
-# Compiler files
-cache/
+############################
+# OS / Editor Junk
+############################
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+
+############################
+# Foundry / Solidity
+############################
+
+# Build artifacts & cache
 out/
+cache/
+
+# Broadcast logs (you can later allow specific networks if desired)
+broadcast/
+
+# Coverage (if you use coverage tools later)
+coverage/
+
+############################
+# Environment / Secrets
+############################
+
+.env
+.env.*
+
+############################
+# Frontend / Node (future-proofing)
+############################
+
+node_modules/
+dist/
+build/
+.next/
+typechain-types/
+
 
 # Ignores development broadcast logs
 !/broadcast
 /broadcast/*/31337/
 /broadcast/**/dry-run/
 
-# Docs
-docs/
-
-# Dotenv file
-.env
